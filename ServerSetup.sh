@@ -173,7 +173,7 @@ install_ssl_Cert() {
 	letsencryptdomains=()
 	end="false"
 	i=0
-	
+
 	while [ "$end" != "true" ]
 	do
 		read -p "Enter your server's domain or done to exit: " -r domain
@@ -191,7 +191,7 @@ install_ssl_Cert() {
 			command="$command -d $i"
 		done
 	command="$command -n --register-unsafely-without-email --agree-tos"
-	
+
 	eval $command
 
 }
@@ -355,8 +355,8 @@ install_postfix_dovecot() {
 	}
 
 	ssl=required
-	ssl_cert = </etc/letsencrypt/live/${primary_domain}/fullchain.pem
-	ssl_key = </etc/letsencrypt/live/${primary_domain}/privkey.pem
+	ssl_cert = /etc/letsencrypt/live/${primary_domain}/fullchain.pem
+	ssl_key = /etc/letsencrypt/live/${primary_domain}/privkey.pem
 	EOF
 
 	read -p "What user would you like to assign to recieve email for Root: " -r user_name
